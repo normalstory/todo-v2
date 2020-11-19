@@ -15,7 +15,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### cra v2 용 세팅 
-'yarn add node-sass@4.14.1 classnames react-icons'
+yarn add node-sass@4.14.1 classnames react-icons
 
 ### flex관련 참고 사이트  
 https://flexboxfroggy.com/#ko
