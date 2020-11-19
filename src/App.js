@@ -4,12 +4,14 @@ import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
 
 const App = () => {
+  //useState
   const [todos, setTodos] = useState([
     { id: 1, text: "react basic study", checked: true },
     { id: 2, text: "component styling study", checked: false },
     { id: 3, text: "building app study", checked: false },
   ]);
 
+  //useRef, useCallback
   const nextId = useRef(4);
   const onInsert = useCallback(
     (text) => {
@@ -24,11 +26,19 @@ const App = () => {
     [todos]
   );
 
+  //filter(true,false)
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
   return (
     <div>
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onRemove={onRemove} />
       </TodoTemplate>
     </div>
   );
