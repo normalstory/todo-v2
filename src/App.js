@@ -38,30 +38,35 @@ const App = () => {
         text,
         checked: false,
       };
-      setTodos(todos.concat(todo));
+      //setTodos(todos.concat(todo)); //useState함수(=>) 최적화 전
+      setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
-    [todos]
+    //[todos] //함수 최적화 전
+    []
   );
 
   //filter(true,false)
   const onRemove = useCallback(
     (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+      //setTodos(todos.filter((todo) => todo.id !== id)); //useState함수(=>) 최적화 전
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
-    [todos]
+    //[todos] ////함수 최적화 전
+    []
   );
 
   //onToggle
   const onToggle = useCallback(
     (id) => {
-      setTodos(
+      setTodos((todos) =>
         todos.map((todo) =>
           todo.id === id ? { ...todo, checked: !todo.checked } : todo
         )
       );
     },
-    [todos]
+    //[todos]
+    []
   );
 
   return (
