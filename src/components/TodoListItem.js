@@ -6,6 +6,7 @@ import {
 } from "react-icons/md";
 import cn from "classnames";
 import "./TodoListItem.scss";
+import TodoList from "./TodoList";
 
 const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
@@ -22,4 +23,5 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+//export default TodoListItem;
+export default React.memo(TodoListItem); //함수형 컴포넌트에서 최적화 by memo
